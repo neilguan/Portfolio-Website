@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="styles.css">
+<meta charset="ISO-8859-1">
+<title>Programming Projects</title>
+<script>
+	function fadeInPage() {
+	    if (!window.AnimationEvent) { 
+	    	return; 
+	    }
+	    var fader = document.getElementById('fader');
+	    fader.classList.add('fade-out');
+	}
+	    
+	document.addEventListener('DOMContentLoaded', function() {
+	    if (!window.AnimationEvent) {
+	    	return;
+	    }
+	    var anchors = document.getElementsByTagName('a');
+	    for (var idx=0; idx<anchors.length; idx+=1) { 	
+	        anchors[idx].addEventListener('click', function(event) {
+	            var fader = document.getElementById('fader'),
+	                anchor = event.currentTarget;
+	            var listener = function() {
+	                window.location = anchor.href;
+	                fader.removeEventListener('animationend', listener);
+	            };
+	            fader.addEventListener('animationend', listener);
+	            event.preventDefault();   	
+	            fader.classList.add('fade-in');
+	        });
+	    }
+	});    	
+		    	
+	window.addEventListener('pageshow', function (event) {
+		  if (!event.persisted) {
+		    return;
+		  }
+		  var fader = document.getElementById('fader');
+		  fader.classList.remove('fade-in');
+		});
+</script>
+</head>
+<body>
+	<svg id="fader"></svg>
+	<script>fadeInPage()</script>
+	<div class="defaultContainer">
+		<ul class="navBar">
+		<li class="left"><a href="index.html">Home</a></li>			
+		<li class="right"><a href="about.html" target="_blank">About</a></li>
+	  	<li class="right"><a href="neilResume.pdf" target="_blank">Resume</a></li>
+	 	<li class="right"><a href="contact.html" target="_blank">Contact</a></li>
+		</ul>
+		<div class="clr"></div>
+		
+		<h1>Programming Projects</h1>
+		
+		<button class="accordion">Schedule Maker</button>
+		<div class="panel">
+			<h2>Description</h2>
+			<p>An application built in Java with the JavaFX toolkit and the Selenium library. Generates a college schedule. It first fetches and parses course data from the University of Massachusetts at Amherst's web portal through web scraping. Again through web scraping, it fetches and parses course professor ratings from www.ratemyprofessor.com. It filters course data acquired from web scraping based on user input; for instance, the user can deselect 8 AM classes or classes that have mediocre professor ratings, and uses said data and filters to automatically generates college schedules. User may export schedule as a PNG file. Useful for college students that need to create their own schedule.</p>
+			<h2>Screenshots</h2>
+			<img class="imgBox" src="programmingScreenshots/scheduleMaker1.PNG">
+			<img class="imgBox" src="programmingScreenshots/scheduleMaker3.jpg">
+			<img class="imgBox" src="programmingScreenshots/scheduleMaker4.PNG">
+			<div class="clr"></div>
+			<h2>Source code and Download</h2>
+			<p>
+			<a class="link" href="https://github.com/neilguan/Schedule-Maker/tree/master/Executable%20Files">Download</a>
+			<a class="link" href="https://github.com/neilguan">Source Code</a>
+			</p>
+		</div>
+		
+		<button class="accordion">Trove Automatic Fishing Macro</button>
+		<div class="panel">
+			<h2>Description</h2>
+		  	<p>An application that automates the fishing task in MMO called Trove through a sequence of automated key inputs. Written in Autohotkey. Can be run indefinitely. After acquisition of designated memory location through Cheat Engine, user may turn on the application and fish automatically. Useful because items gained from fishing may be sold in the auction house for ingame currency. Use at own risk, as techically botting is against the TOS.</p>
+		  	<h2>Source code</h2>
+		  	<p>
+			<a class="link" href="https://github.com/neilguan/Trove-Fishing-Macro">Source Code</a>
+			</p>
+		</div>
+		
+		<button class="accordion">Minecraft Nether Wart Harvesting Macro</button>
+		<div class="panel">
+			<h2>Description</h2>
+		 	 <p>An application that automates the harvesting of nether wart in Minecraft through a sequence of automated key inputs. Written in Autohotkey. After in-game creation of a specific type of farm as designated by specific instructions, user may run the macro. The macro will move the player in a specific pattern which automates the collection, harvesting, and replanting of nether wart. Useful in faction servers, wherein nether wart is sold to increase ingame currency. Use at own risk, as botting may be prohibited on many Minecraft servers.</p>
+		 	<h2>Source code</h2>
+		 	<p>
+			<a class="link" href="https://github.com/neilguan/Minecraft-Nether-Wart-Harvesting-Macro">Source Code</a>
+			</p>
+		</div>
+		
+		<button class="accordion">Bluephobia</button>
+		<div class="panel">
+			<h2>Description</h2>
+		 	<p>A game written in collaboration with Tarek Elkheir. Written in App Inventor.</p>
+		 	<img class="imgBox" src="programmingScreenshots/BluePhobia.jpg">
+			<div class="clr"></div>
+		 	<h2>Source code and Download</h2>
+		 	<p>
+			<a class="link" href="https://github.com/neilguan/BluePhobia">Source Code and Download</a>
+			</p>
+		</div>
+		
+		<button class="accordion">Math Game</button>
+		<div class="panel">
+			<h2>Description</h2>
+		 	 <p>Another game written in collaboration with Tarek Elkheir. Written in App Inventor. Tests your basic addition, subtraction, multiplication and division skills.</p>
+ 			<h2>Screenshots</h2>
+ 			<img class="imgBox" src = "programmingScreenshots/mathApp.png">
+ 			<div class="clr"></div>
+			<h2>Source code and Download</h2>	
+			<p>
+			<a class="link" href="https://github.com/neilguan/Math-Game">Source Code and Download</a>
+			</p>
+		</div>
+		
+		<button class="accordion">Riemann Sum Calculator (TI-84)</button>
+		<div class="panel">
+			<h2>Description</h2>
+		 	 <p>An application written in TI-basic. Based on point inputs, calculates the left, right and trapezoidal Riemann sums of a curve. Useful in calculus class and AP exam.</p>
+		 	 <h2>Source code and Download</h2>
+		</div>
+		
+		<button class="accordion">Polynomial Expansion Calculator (TI-84)</button>
+		<div class="panel">
+			<h2>Description</h2>
+		 	<p>An application written in TI-basic. When the user inputs two polynomials in standard form, the program calculates the product of said polynomials and returns the resulting polynomial in standard form. Useful while tackling tedious pre-algebra problems.</p>
+		 	<h2>Source code and Download</h2>
+		</div>
+		
+		<button class="accordion">Line Info Calculator (TI-84)</button>
+		<div class="panel">
+			<h2>Description</h2>
+		 	<p>An application written in TI-basic. When the user inputs two points, the application calculates the slope and the Y-Intercept of the line that goes through both points. Furthermore calculates the midpoint and distance of both points, and the slope and Y-Intercept of the perpindicular bisector of the first line. Useful in geometry class and on the SATs.</p>
+			<h2>Source code and Download</h2>
+		</div>
+		
+		<button class="accordion">Radical Simplification Calculator (TI-84)</button>
+		<div class="panel">
+			<h2>Description</h2>
+		 	<p>An application written in TI-basic. When the user inputs a root, the program simplifies said root. Useful in algebra class.</p>
+			<h2>Source code and Download</h2>
+		</div>
+				
+		<button class="accordion">Synthetic Division Calculator (TI-84)</button>
+		<div class="panel">
+			<h2>Description</h2>
+		 	<p>An application written in TI-basic. Performs synthetic division. Useful in algebra class.</p>
+		 	<h2>Source code and Download</h2>
+		</div>
+		
+
+
+	</div>
+	<script src="scripts2.js"></script>
+</body>
+</html>
